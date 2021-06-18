@@ -10,7 +10,7 @@ class Config:
     # simple mde  configurations
     SIMPLEMDE_JS_IIFE = True
     SIMPLEMDE_USE_CDN = True
-
+    
 
 
 class ProdConfig(Config):
@@ -20,7 +20,7 @@ class ProdConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
 
 class TestConfig(Config):
     '''
@@ -38,7 +38,8 @@ class DevConfig(Config):
     Args:
         Config: The parent configuration class with General configuration settings
     '''
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://liz:lizzie@localhost/pitch'
+  
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URI")
     DEBUG = True
 
 
